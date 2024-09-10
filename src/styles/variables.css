@@ -1,0 +1,16 @@
+/* src/styles/variables.css */
+
+:root {
+    --primary-color: #3498db;
+    --text-color-light: #333;
+    --background-color-light: #f4f4f9;
+    --card-background-light: #ffffff;
+    --text-color-dark: #f4f4f9;
+    --background-color-dark: #121212;
+    --card-background-dark: #1e1e1e;
+    --button-hover-light: #0056b3;
+    --button-hover-dark: #1a73e8;
+    --error-color-light: #ff5252;
+    --error-color-dark: #ff6b6b;
+  }
+  

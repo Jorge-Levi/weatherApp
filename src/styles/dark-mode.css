@@ -1,0 +1,57 @@
+/* src/styles/dark-mode.css */
+
+/* Modo oscuro */
+body.dark-mode {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+body.dark-mode .glass-card {
+  background-color: var(--card-background-dark);
+  color: var(--text-color-dark);
+}
+
+button.dark-mode {
+  background-color: var(--primary-color);
+}
+
+button.dark-mode:hover {
+  background-color: var(--button-hover-dark);
+}
+
+.dark-mode-toggle {
+  position: fixed;
+  bottom: 20px; /* Cambiado a la parte inferior derecha */
+  right: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave para darle profundidad */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  background-color: var(--button-hover-light);
+  transform: scale(1.1); /* Agrandar suavemente al pasar el ratón */
+}
+
+/* Estilo del botón en modo oscuro */
+body.dark-mode .dark-mode-toggle {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background-color: var(--button-hover-dark);
+}
+
+.icon {
+  font-size: 24px;
+}

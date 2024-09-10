@@ -1,0 +1,44 @@
+/* src/components/Loader/Loader.css */
+
+/* Contenedor del loader */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  text-align: center;
+}
+
+/* Spinner */
+.spinner {
+  border: 8px solid var(--background-color-light); /* Color de fondo del spinner en modo claro */
+  border-top: 8px solid var(--primary-color); /* Color de la animación */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+/* Animación para el spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estilo del texto */
+p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: var(--primary-color); /* Color del texto de carga */
+}
+
+/* Ajustes para el modo oscuro */
+body.dark-mode .spinner {
+  border-color: var(--background-color-dark); /* Color de fondo del spinner en modo oscuro */
+  border-top-color: var(--primary-color); /* Color de la animación en modo oscuro */
+}
+
+body.dark-mode p {
+  color: var(--text-color-dark); /* Color del texto de carga en modo oscuro */
+}

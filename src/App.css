@@ -1,38 +1,179 @@
-.App {
-  text-align: center;
+/* src/App.css */
+
+/* Definición de variables de colores para el modo claro y oscuro */
+:root {
+  --primary-color: #3498db;
+  --text-color-light: #333;
+  --background-color-light: #f4f4f9;
+  --card-background-light: #ffffff;
+  --text-color-dark: #f4f4f9;
+  --background-color-dark: #121212;
+  --card-background-dark: #1e1e1e;
+  --button-hover-light: #0056b3;
+  --button-hover-dark: #1a73e8;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Estilos por defecto para el modo claro */
+body {
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Estilos tipográficos mejorados */
+h1, .card-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #007bff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+p, .forecast-detail {
+  font-size: 1.2rem;
+}
+
+/* Efecto glassmorphism */
+.glass-card {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilos del botón de Modo Oscuro/Día */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--primary-color);
   color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.dark-mode-toggle:hover {
+  background-color: var(--button-hover-light);
+  transform: scale(1.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+body.dark-mode .dark-mode-toggle {
+  background-color: var(--background-color-dark);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background-color: var(--button-hover-dark);
+}
+
+.icon {
+  font-size: 24px;
+}
+
+/* Favoritos: estilos de la lista y hover */
+.favorites ul {
+  padding: 0;
+}
+
+.favorites li {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  color: var(--text-color-light); /* Modo claro: color de texto */
+}
+
+.favorites li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .favorites li {
+  color: var(--text-color-dark); /* Modo oscuro: color de texto */
+}
+
+/* Modo oscuro */
+body.dark-mode {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+.glass-card.dark-mode {
+  background-color: var(--card-background-dark);
+  color: var(--text-color-dark);
+}
+
+/* Estilo de botones en modo oscuro */
+button.dark-mode {
+  background-color: var(--primary-color);
+}
+
+button.dark-mode:hover {
+  background-color: var(--button-hover-dark);
+}
+
+/* Texto de error */
+.text-danger {
+  color: #ff5252;
+}
+
+body.dark-mode .text-danger {
+  color: #ff6b6b;
+}
+
+/* Loader centrado */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid rgba(0, 0, 0, 0.1); /* Borde semi-transparente */
+  border-top-color: #3498db; /* Color principal del spinner */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
+
+/* Transiciones suaves */
+body, .glass-card, button {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* Contenedor de la gráfica */
+.chart-container {
+  margin-top: 50px;
+  width: 100%; /* Asegura que el gráfico ocupe el ancho completo del contenedor */
+  height: 400px; /* Altura fija para pantallas grandes */
+}
+
+@media (max-width: 768px) {
+  /* Ajustes para pantallas móviles */
+  .chart-container {
+    height: 300px; /* Disminuye la altura en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ajustes para dispositivos aún más pequeños */
+  .chart-container {
+    height: 250px; /* Altura más reducida en dispositivos móviles */
+  }
+}
+
